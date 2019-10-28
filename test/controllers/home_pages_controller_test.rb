@@ -2,8 +2,9 @@ require 'test_helper'
 
 class HomePagesControllerTest < ActionDispatch::IntegrationTest
   test "should get home" do
-    get home_pages_home_url
+    get root_url
     assert_response :success
+    assert_select "title", "Home|Ptwitter"
   end
 
 end
