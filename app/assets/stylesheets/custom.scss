@@ -50,3 +50,14 @@ aside {
   }
 }
 
+/* forms */
+input, textarea, select {
+  @include box_sizing;
+  width: 100%;
+  margin-bottom: 15px;
+  border: solid #bbb;
+}
+
+input {
+  height: auto !important;
+}
