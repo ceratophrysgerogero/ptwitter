@@ -7,32 +7,14 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/shim' %>
   </head>
 
   <body>
-      <nav class="navbar navbar-default">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
-            <!-- 音声ブラウザにメニューがあることを伝える -->
-            <span class="sr-only">メニュー</span>
-          </button>
-          <%= link_to "Pwitter", root_path, class: "navbar-brand" %>
-        </div>
-        <div id="gnavi" class="collapse navbar-collapse navbar-right">
-          <ul class="nav navbar-nav">
-            <li><a href="">Home</a></li>
-            <li><a href="">About</a></li>
-            <li><a href=<%=login_path%>>Log in</a></li>
-          </ul>
-        </div>
-      </nav>
-      <div class="container">
-        <% flash.each do |message_type, message| %>
-          <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-        <% end %>
-        <%= yield %>
-        <%= debug(params) if Rails.env.development? %>
-      </div>
+    <%= render'layouts/header' %>
+    <div class="contatiner">
+      <%= yield %>
+    </div>
   </body>
 </html>
 

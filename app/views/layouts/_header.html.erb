@@ -1,0 +1,27 @@
+<nav class="nav-header">
+  <title><%= full_title(yield(:title)) %></title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
+        <!-- 音声ブラウザにメニューがあることを伝える -->
+        <span class="sr-only">メニュー</span>
+      </button>
+      <%= link_to "Pwitter", root_path, class: "navbar-brand" %>
+    </div>
+    <div id="gnavi" class="collapse navbar-collapse navbar-right">
+      <ul class="nav navbar-nav">
+        <li><a href="">ホーム</a></li>
+          <% if logged_in? %>
+          <% else %>
+            <li><a href=<%=login_path%>>ログイン</a></li>
+          <% end %>
+      </ul>
+    </div>
+  </nav>
+</nav>
