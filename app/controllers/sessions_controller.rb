@@ -11,6 +11,10 @@ class SessionsController < ApplicationController
       flash.now[:danger] = "メールアドレスもしくはパスワードが間違っています。"
       render 'new'
     end
-    
+  end
+
+  def destroy
+    log_out
+    redirect_to root_url
   end
 end
