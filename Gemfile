@@ -38,6 +38,8 @@ gem 'bcrypt', '~> 3.1.7'
 # エラーメッセージ日本語化 
 gem 'rails-i18n'
 
+gem 'jquery-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
