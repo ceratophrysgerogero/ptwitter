@@ -75,4 +75,8 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "ユーザーのauthenticated?が空の場合" do
+    assert_not @user.authenticated?('')
+  end
+
 end
