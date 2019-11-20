@@ -46,6 +46,18 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", logout_path, count: 0
     assert_select "a[href=?]", user_path(@user),  count: 0
   end
+
+  test "クッキーを使った永続的ログイン" do
+    log_in_as(@user)
+    assert_not_empty cookies['remember_token']
+  end
+
+  test "クッキーを使った永続ログインした後通常ログイン" do
+    log_in_as(@user)
+    delete logout_path
+    log_in_as(@user, remember_me: '0')
+    assert_empty cookies['remember_token']
+  end
 end
 
 
