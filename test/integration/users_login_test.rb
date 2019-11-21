@@ -49,7 +49,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   test "クッキーを使った永続的ログイン" do
     log_in_as(@user)
-    assert_not_empty cookies['remember_token']
+    assert_equal cookies['remember_token'], assigns(:user).remember_token
   end
 
   test "クッキーを使った永続ログインした後通常ログイン" do
