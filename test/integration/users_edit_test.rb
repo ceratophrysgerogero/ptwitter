@@ -33,4 +33,10 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                               password_confirmation: "bar" }}
     assert_template "users/edit"
   end
+
+  test "ログインを強要したらログイン前のURLに遷移する" do
+    get edit_user_path(@user)
+    log_in_as(@user)
+    assert_redirected_to edit_user_path(@user)
+  end
 end
