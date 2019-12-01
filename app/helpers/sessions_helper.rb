@@ -54,4 +54,15 @@ module SessionsHelper
       end
     end
   end
+
+  # アクセスしようとしたURLに飛ぶ
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwrding_url)
+  end
+
+  # アクセスしようとしたurlを格納する
+  def store_url
+    session[:forwarding_url] = request.original_url if request.get?
+  end
 end
