@@ -44,4 +44,20 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     }
     assert_not @other_user.reload.admin?
   end
+
+  test "ログインしてない場合ユーザーを削除できなくリダイレクトする" do
+    assert_no_difference 'User.count' do
+      delete user_path(@user)
+    end
+    assert_redirected_to login_url
+  end
+
+  test "アドミンユーザーでなければユーザー削除はできずリダイレクトする" do
+    log_in_as(@other_user)
+    assert_no_difference 'User.count' do
+      delete user_path(@user)
+    end
+    assert_redirected_to root_url
+  end
+
 end
