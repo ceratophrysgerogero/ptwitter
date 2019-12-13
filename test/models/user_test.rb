@@ -79,4 +79,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?('')
   end
 
+  test "1つのユーザーが消える連携されているマイクロポストも消える" do
+    @user.save 
+    @user.microposts.create!(content: "テストコンテント")
+    assert_difference 'Micropost.count',-1 do
+      @user.destroy
+    end
+  end
+
 end
