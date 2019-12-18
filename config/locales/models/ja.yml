@@ -9,3 +9,9 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
 
+  activerecord:
+    models:
+      micropost: マイクロポスト
+    attributes:
+      micropost:
+          content: 内容
