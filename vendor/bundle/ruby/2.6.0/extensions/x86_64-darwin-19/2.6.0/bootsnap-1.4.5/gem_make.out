@@ -1,0 +1,15 @@
+current directory: /Users/mannbou/Workspace/rails_trial/ptwitter/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
+/Users/mannbou/.rbenv/versions/2.6.0/bin/ruby -I /Users/mannbou/.rbenv/versions/2.6.0/lib/ruby/2.6.0 -r ./siteconf20191223-50148-16ed5tt.rb extconf.rb
+creating Makefile
+
+current directory: /Users/mannbou/Workspace/rails_trial/ptwitter/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/mannbou/Workspace/rails_trial/ptwitter/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/mannbou/Workspace/rails_trial/ptwitter/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20191223-50148-uaprxe/bootsnap
