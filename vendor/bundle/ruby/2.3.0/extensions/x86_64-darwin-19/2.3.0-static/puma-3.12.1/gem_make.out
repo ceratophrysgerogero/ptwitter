@@ -1,0 +1,32 @@
+current directory: /Users/mannbou/Workspace/rails_trial/ptwitter/vendor/bundle/ruby/2.3.0/gems/puma-3.12.1/ext/puma_http11
+/Users/mannbou/.rbenv/versions/2.3.7/bin/ruby -r ./siteconf20191222-96447-hcdn7t.rb extconf.rb
+Ignoring ffi-1.11.1 because its extensions are not built.  Try: gem pristine ffi --version 1.11.1
+Ignoring nokogiri-1.10.4 because its extensions are not built.  Try: gem pristine nokogiri --version 1.10.4
+Ignoring sqlite3-1.4.1 because its extensions are not built.  Try: gem pristine sqlite3 --version 1.4.1
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+checking for openssl/bio.h... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /Users/mannbou/Workspace/rails_trial/ptwitter/vendor/bundle/ruby/2.3.0/extensions/x86_64-darwin-19/2.3.0-static/puma-3.12.1/mkmf.log
+
+current directory: /Users/mannbou/Workspace/rails_trial/ptwitter/vendor/bundle/ruby/2.3.0/gems/puma-3.12.1/ext/puma_http11
+make "DESTDIR=" clean
+
+current directory: /Users/mannbou/Workspace/rails_trial/ptwitter/vendor/bundle/ruby/2.3.0/gems/puma-3.12.1/ext/puma_http11
+make "DESTDIR="
+compiling http11_parser.c
+ext/puma_http11/http11_parser.c:44:18: warning: unused variable 'puma_parser_en_main' [-Wunused-const-variable]
+static const int puma_parser_en_main = 1;
+                 ^
+1 warning generated.
+compiling io_buffer.c
+compiling mini_ssl.c
+compiling puma_http11.c
+linking shared-object puma/puma_http11.bundle
+
+current directory: /Users/mannbou/Workspace/rails_trial/ptwitter/vendor/bundle/ruby/2.3.0/gems/puma-3.12.1/ext/puma_http11
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 puma_http11.bundle ./.gem.20191222-96447-1rrf96j/puma
