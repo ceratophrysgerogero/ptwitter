@@ -82,7 +82,8 @@ class UserTest < ActiveSupport::TestCase
   test "1つのユーザーが消える連携されているマイクロポストも消える" do
     @user.save 
     @user.microposts.create!(content: "テストコンテント")
-    assert_difference 'Micropost.count',-1 do
+    user_microposts_num = @user.microposts.count
+    assert_difference 'Micropost.count',-user_microposts_num do
       @user.destroy
     end
   end
