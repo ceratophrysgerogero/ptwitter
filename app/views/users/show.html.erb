@@ -10,7 +10,7 @@
   </aside>
   <div class="col-md-8">
     <% if @user.microposts.any? %>
-           <h3>マイクロポストの総数 <%= @user.microposts.count %> 個 </h3>
+      <h3>マイクロポストの総数 <%= @user.microposts.count %> 個 </h3>
       <ol class="microposts">
         <%= render @microposts %>
       </ol>
