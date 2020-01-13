@@ -9,7 +9,7 @@ class MicropostsController < ApplicationController
       flash[:success] = "マイクロポストを作成しました！！"
       redirect_to root_url
     else
-      @feed_itemes = []
+      @feed_items = []
       render 'home_pages/home'
     end
   end
@@ -23,7 +23,7 @@ class MicropostsController < ApplicationController
   private
 
   def microposts_strong_params
-    params.require(:micropost).permit(:content)
+    params.require(:micropost).permit(:content, :picture)
   end
 
   def correct_user
