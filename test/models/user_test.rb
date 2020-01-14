@@ -94,6 +94,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not bobu.following?(archer)
     bobu.follow(archer)
     assert bobu.following?(archer)
+    assert archer.followers.include?(bobu)
     bobu.unfollow(archer)
     assert_not bobu.following?(archer)
   end
