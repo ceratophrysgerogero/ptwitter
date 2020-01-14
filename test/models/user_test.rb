@@ -88,4 +88,13 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  test "フォローとフォロー解除" do
+    bobu = users(:bobu)
+    archer  = users(:archer)
+    assert_not bobu.following?(archer)
+    bobu.follow(archer)
+    assert bobu.following?(archer)
+    bobu.unfollow(archer)
+    assert_not bobu.following?(archer)
+  end
 end
