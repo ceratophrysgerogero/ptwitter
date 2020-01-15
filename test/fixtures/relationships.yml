@@ -1,0 +1,15 @@
+one:
+  follower: bobu
+  followed: lana
+
+two:
+  follower: bobu
+  followed: malory
+
+three:
+  follower: lana
+  followed: bobu
+
+four:
+  follower: archer
+  followed: bobu
