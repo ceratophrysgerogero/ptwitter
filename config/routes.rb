@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'home_pages#home'
   resources :microposts, only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
-    resources :users do
+  resources :users do
     member do
       get :following, :followers
     end
