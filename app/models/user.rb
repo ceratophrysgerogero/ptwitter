@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   def feed
-    Micropost.where("user_id = ?", id)
+    Micropost.where("user_id IN (?) OR user_id = ?", following_ids, id)
   end
 
   def self.digest(string)
