@@ -4,7 +4,7 @@
       <section class="user_info">
         <%= render 'shared/user_info' %>
       </section>
-            <section class="stats">
+      <section class="stats">
         <%= render 'shared/stats' %>
       </section>
       <section class="micropost_form">
@@ -17,12 +17,12 @@
     </div>
   </div>
 <% else %>
-<% provide(:title,"Home") %>
-  <div class="jumbotron white"style="background: url(<%= asset_path "Home.jpg" %>); background-size: cover;">
-    <div class="container-fluid">
-      <h1>ようこそ</h1>
-      <p>プログラマーの為のtwitter</p>
-      <a class="btn btn-primary btn-lg" href= <%= signup_path %> role="button">アカウント登録</a>
+  <% provide(:title,"Home") %>
+    <div class="jumbotron white"style="background: url(<%= asset_path "Home.jpg" %>); background-size: cover;">
+      <div class="container-fluid">
+        <h1>ようこそ</h1>
+        <p>プログラマーの為のtwitter</p>
+        <a class="btn btn-primary btn-lg" href= <%= signup_path %> role="button">アカウント登録</a>
+      </div>
     </div>
-  </div>
 <% end %>
