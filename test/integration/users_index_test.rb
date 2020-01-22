@@ -21,10 +21,8 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     get users_path
     assert_template 'users/index'
     assert_select 'div.pagination'
-    
     first_page_user = User.paginate(page:1)
     first_page_user.each do |user|
-      assert_select 'a[href=?]', user_path(user), text:user.name
       unless user == @adomin
         assert_select 'a[href=?]', user_path(user), test: 'delete'
       end
