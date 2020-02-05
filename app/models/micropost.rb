@@ -2,7 +2,7 @@ class Micropost < ApplicationRecord
   belongs_to :user
   default_scope -> {order(created_at: :desc)}
   mount_uploaders :pictures, PictureUploader
-  serialize :pictures、JSON
+  serialize :pictures, JSON
   validates :user_id, presence: true
   validates :content, presence: true
   validate  :picture_size
