@@ -2,7 +2,11 @@
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content">
     <%= micropost.content %>
-    <%= image_tag micropost.pictures.url if micropost.pictures? %>
+    <% if micropost.pictures? %>
+      <% micropost.pictures.each do |picture| %>
+        <%= image_tag picture.url %>
+      <% end %>
+    <% end %>
   </span>
   <span class="timestamp">
     <%= time_ago_in_words(micropost.created_at) %> 前に投稿
