@@ -4,7 +4,9 @@
     <%= micropost.content %>
     <% if micropost.pictures? %>
       <% micropost.pictures.each do |picture| %>
-        <%= image_tag picture.url %>
+        <span class="picture">
+          <%= image_tag picture.url %>
+        </span>
       <% end %>
     <% end %>
   </span>
