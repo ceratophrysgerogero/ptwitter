@@ -4,9 +4,11 @@
     <%=f.text_area :content, placeholder: "つぶやこう" %>
   </div>
   <%= f.submit "投稿", class: "btn btn-primary" %>
-  <span class="picture">
+  <span class="picture_field">
     <%= f.file_field :pictures, multiple: true, accept: 'image/jpeg,image/gif,image/png' %>
   </span>
+  <button type="button" id="appendButton">画像ファイルを追加</button>
+  <button type="button" id="remove_file">選択した画像を破棄</button>
 <% end %>
 
 <script type="text/javascript">
@@ -16,4 +18,30 @@
       alert('ファイルサイズは5MB jpeg,gif,pngの拡張子のみです');
     }
   });
+
+  var number_files = 3;
+  var input_append = '<input multiple="multiple" accept="image/jpeg,image/gif,image/png"           type="file" name="micropost[pictures][]" id="micropost_pictures" />';
+
+  function htmlElementLength(element) {
+    return $(String(element)).children().length; 
+  }
+
+  $("#appendButton").click(function(){
+    if (htmlElementLength('.picture_field') <= number_files) {
+      $('.picture_field').append(input_append);
+      if (htmlElementLength('.picture_field')  == number_files) {
+          $('#appendButton').fadeOut();
+      }
+    } 
+  });
+
+  $("#remove_file").click(function(){
+    var picture_filed_length = htmlElementLength('.picture_field');
+    for (var i=0; i<picture_filed_length; i++){
+      $('#micropost_pictures').remove();
+    }
+    $('#appendButton').fadeIn();
+  });
+
+
 </script>
