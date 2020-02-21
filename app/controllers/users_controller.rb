@@ -32,6 +32,12 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    user = User.find(params[:id])
+    user.microposts.each do | micropost |
+      micropost.remove_pictures!
+      micropost.save
+    end
+    
     User.find(params[:id]).destroy
     flash[:success] = "ユーザーを削除しました"
     redirect_to users_url
