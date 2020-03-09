@@ -1,5 +1,5 @@
 class MicropostContent
-  REPLY_CONTENT_REGEX = /\A(@(?<user_id>\d{1,})-(?<user_name>[^\s]+)\s)?/i
+  REPLY_CONTENT_REGEX = /\A(@(?<user_id>\d{1,})_(?<user_name>[^\s]+)\s)?/i
 
   def initialize(micropost_content)
     @micropost_content = micropost_content
