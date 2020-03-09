@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  composed_of :reply_name, mapping: [ %w(id user_id), %w(name user_name)]
   has_many :microposts, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship",
                                    foreign_key: "follower_id",
@@ -14,14 +15,15 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX=/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
     format: { with: VALID_EMAIL_REGEX},uniqueness:{ case_sensitive: false}
+
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   def feed
     following_ids = "SELECT followed_id FROM relationships
                      WHERE follower_id = :user_id"
-    Micropost.where("user_id IN (#{following_ids})
-                     OR user_id = :user_id", user_id: id)
+    Micropost.where("user_id IN (#{following_ids})", user_id: id)
+             .or(Micropost.including_replies(id))
   end
 
   def self.digest(string)
