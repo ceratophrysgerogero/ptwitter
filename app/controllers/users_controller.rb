@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   end
 
   def create 
+    cureate_user_name
     @user = User.new(user_params)
     if @user.save
       log_in @user
@@ -78,12 +79,26 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
- def correct_user
+  def correct_user
     @user = User.find(params[:id])
     redirect_to(root_url) unless current_user?(@user)
   end
   
   def admin_user
     redirect_to(root_url) unless current_user.admin?
+  end
+
+  NOT_BLANK = /[^[:blank:]]+/
+  def cureate_user_name
+    user_name_scanned = params[:user][:name].scan(NOT_BLANK)
+    user_name =""
+    user_name_scanned.each_with_index do |name, index| 
+      if index == 0
+        user_name = name
+      else
+        user_name += "_"+name
+      end
+    end
+    params[:user][:name] = user_name
   end
 end
