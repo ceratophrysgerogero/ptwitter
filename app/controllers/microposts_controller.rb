@@ -5,11 +5,12 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(microposts_strong_params)
     if @micropost.save 
-      flash[:success] = "マイクロポストを作成しました！！"
+      flash[:success] = "投稿に成功しました。"
       redirect_to user_path(params[:params_id])
     else
       @feed_items = []
-      render 'home_pages/home'
+      flash[:danger] = "投稿に失敗しました。"
+      redirect_to user_path(params[:params_id])
     end
   end
 
