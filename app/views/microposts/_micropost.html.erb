@@ -1,7 +1,7 @@
 <li id="micropost-<%= micropost.id %>">
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content">
-    <%= micropost.content %>
+    <%= micropost.decorated_content %>
     <% if micropost.pictures? %>
       <% micropost.pictures.each do |picture| %>
         <span class="picture">
