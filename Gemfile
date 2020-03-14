@@ -56,6 +56,12 @@ gem 'carrierwave'
 # リプライ機能
 gem 'active_decorator'
 
+# マークダウンを変換する
+gem 'redcarpet'
+
+# シンタックスハイライトに対応する
+gem 'coderay'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
